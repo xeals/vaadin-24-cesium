@@ -1,9 +1,11 @@
 import { UserConfigFn } from 'vite';
 import { overrideVaadinConfig } from './vite.generated';
+import cesium from 'vite-plugin-cesium';
 
 const customConfig: UserConfigFn = (env) => ({
-  // Here you can add custom Vite parameters
-  // https://vitejs.dev/config/
+    plugins: [
+        cesium({rebuildCesium: true})
+    ]
 });
 
 export default overrideVaadinConfig(customConfig);
